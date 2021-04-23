@@ -1,13 +1,11 @@
-const express = require('express');
-const router = express.Router();
+const express = require('express')
+const router = express.Router()
 
-const controller = require('../controllers/controllers');
+const controller = require('../controllers/controllers')
 
-router.get('/list', controller.getAll);
-router.post('/list', controller.post);
-router.delete('/list/:id', controller.delete);
-// router.put('/', controller.add); 
+router.get('/list', controller.getAll)
+router.post('/list', controller.post)
+router.delete('/list/:id', controller.delete)
+// router.put('/', controller.add);
 
-
-
-module.exports = router;
+module.exports = router
