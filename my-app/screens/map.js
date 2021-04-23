@@ -1,22 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { View, Text, StyleSheet, SafeAreaView } from 'react-native'
 import MapView, { Marker } from 'react-native-maps'
 
-const dataUrl = 'http://192.168.1.219:3003/list'
 
-const Map = () => {
-  
-  const [data, setData] = useState([])
 
-  const gettingData = async () => {
-    const response = await fetch(dataUrl)
-    const json = await response.json()
-    setData(json)
-  }
+const Map = ({ data }) => {
 
-  useEffect(() => {
-    gettingData()
-  }, [])
 
   const pinData = data.map((marker, index) => {
     return (

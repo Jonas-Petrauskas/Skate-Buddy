@@ -10,7 +10,7 @@ export default function App () {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator >
+      <Stack.Navigator headerMode="none">
         <Stack.Screen name='LandingPage' component={LandingPage} />
         <Stack.Screen name='List' component={HomePage} />
       </Stack.Navigator>
