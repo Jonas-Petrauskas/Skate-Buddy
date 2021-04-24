@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, StyleSheet, Pressable, ImageBackground } from 'react-native'
+import { View, Text, StyleSheet, ImageBackground, TouchableOpacity } from 'react-native'
 
 const image = require('../assets/loadingImg.png')
 
@@ -8,11 +8,11 @@ const landingPage = ({ navigation }) => {
     <View style={styles.container}>
       <ImageBackground source={image} style={styles.image}>
         <View style={stylesButton.container}>
-          <Pressable
+          <TouchableOpacity
             style={stylesButton.button} onPress={() => navigation.navigate('List')}
           >
             <Text style={stylesButton.text}>Click here</Text>
-          </Pressable>
+          </TouchableOpacity>
         </View>
       </ImageBackground>
     </View>
@@ -43,10 +43,10 @@ const stylesButton = StyleSheet.create({
     borderRadius: 15,
     width: 150,
     marginTop: 550,
-    backgroundColor: 'rgb(44, 102, 110)'
+    backgroundColor: 'rgb(240, 237, 238)'
   },
   text: {
-    color: 'white',
+    color: 'rgb(55, 53, 57)',
     fontWeight: 'bold',
     fontSize: 16,
     letterSpacing: 0.25

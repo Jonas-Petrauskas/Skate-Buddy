@@ -1,43 +1,42 @@
-import React, { useState, useEffect} from 'react'
-import { View, Text, StyleSheet } from 'react-native'
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import React, { useState, useEffect } from 'react'
+import { View, Text, StyleSheet, Image } from 'react-native'
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { createStackNavigator } from '@react-navigation/stack'
+import { MaterialCommunityIcons } from '@expo/vector-icons'; 
+import { Ionicons } from '@expo/vector-icons'; 
 
-import  SingleList from './singleList';
-
+import SingleList from './singleList'
 import ListView from './list'
 import MapView from './map'
 
-const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator()
 
-const ListStack = createStackNavigator();
+const ListStack = createStackNavigator()
 
 const ListStackScreen = () => (
-  <ListStack.Navigator   
-    headerMode="none"
+  <ListStack.Navigator
+    headerMode='none'
   >
-    <ListStack.Screen name="ListView" component={ListView}/>
-    <ListStack.Screen name="SingleList" component={SingleList}/>
+    <ListStack.Screen name='ListView' component={ListView} />
+    <ListStack.Screen name='SingleList' component={SingleList} />
   </ListStack.Navigator>
 )
 
-const dataUrl = 'http://192.168.1.219:3003/list';
-
+const dataUrl = 'http://192.168.1.219:3003/list'
 
 const homeScreen = () => {
-
-
   const [data, setData] = useState([])
-  
+
   const gettingData = async () => {
     const response = await fetch(dataUrl)
     const json = await response.json()
     setData(json)
   }
-  
+
   useEffect(() => {
     gettingData()
   }, [])
+
   return (
     <Tab.Navigator tabBarOptions={{
       activeTintColor: 'white',
@@ -46,13 +45,29 @@ const homeScreen = () => {
         borderTopWidth: 0
       },
       labelStyle: {
-        fontSize: 18
+        fontSize: 10
       }
     }}
     >
-      <Tab.Screen name='Map' children={() => <MapView data={data}/>} />
-      <Tab.Screen name='List' children={() => <ListStackScreen data={data}/>} />
-    </Tab.Navigator>
+      <Tab.Screen 
+        options={{
+          tabBarLabel: 'Map',
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="md-map-outline" size={24} color="rgb(240, 237, 238)" />
+          ),
+        }}
+        name='Map' children={() => <MapView data={data}/>} />
+
+
+      <Tab.Screen
+        options={{
+          tabBarLabel: 'List',
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="skateboard" size={24} color="rgb(240, 237, 238)" />
+          ),
+        }}
+        name='List' children={() => <ListStackScreen data={data} />}/>
+      </Tab.Navigator>
   )
 }
 

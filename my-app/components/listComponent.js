@@ -1,28 +1,56 @@
 import { useNavigation } from '@react-navigation/core'
 import React from 'react'
-import { View, Text, StyleSheet, SafeAreaView, ScrollView, Button, TouchableOpacity, ImageBackground } from 'react-native'
+import { Text, TouchableOpacity, View, StyleSheet, Image } from 'react-native'
 
-
-
-export default function ListComponent({ list }) {
+export default function ListComponent ({ list }) {
 
   const navigation = useNavigation()
+  
   return (
-    <TouchableOpacity onPress={() => navigation.navigate('SingleList')} > 
-      <Text 
-        style={{
-          borderWidth: 4,
-          backgroundColor: 'red', 
-          height: 200,
-          width: 200,
-          fontSize: 30
-          // color: 'black'
+    <TouchableOpacity onPress={() => navigation.navigate('SingleList')}>
+      <View style={{
+          backgroundColor: 'rgb(55, 53, 57)',
+          color: 'rgb(240, 237, 238)',
+          height: 390,
+          width: 325,
+          borderRadius: 20,
+          marginBottom: 40,
+          alignItems: 'left'
+        }}
+        key={list._id}
+      >
+        <View style={styles.image}>
 
-        }} 
-        key={list._id}>
-        {list.title}
-      </Text>
+        <Image  source={require('../assets/universitat.png')} />
+        </View>
+        <Text style={styles.text}>
+          {list.title}
+        </Text>
+        <Text style={styles.description}>
+          {list.description}
+        </Text>
+      </View>
     </TouchableOpacity>
-    
-  ) 
+
+  )
 }
+
+const styles = StyleSheet.create({
+  text: {
+    color: 'rgb(240, 237, 238)',
+    fontSize: 20,
+    fontWeight: 'bold',
+    paddingTop: 15,
+    paddingLeft: 25
+  },
+  description: {
+    color: 'rgb(240, 237, 238)',
+    fontSize: 15,
+    paddingTop: 15,
+    paddingLeft: 25
+  },
+  image: {
+    paddingLeft: 25,
+    paddingTop: 15
+  }
+})

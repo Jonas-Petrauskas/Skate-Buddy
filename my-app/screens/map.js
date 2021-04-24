@@ -2,11 +2,7 @@ import React from 'react'
 import { View, Text, StyleSheet, SafeAreaView } from 'react-native'
 import MapView, { Marker } from 'react-native-maps'
 
-
-
 const Map = ({ data }) => {
-
-
   const pinData = data.map((marker, index) => {
     return (
       <Marker
