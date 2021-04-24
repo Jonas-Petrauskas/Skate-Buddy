@@ -1,16 +1,13 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text, StyleSheet, Image } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { createStackNavigator } from '@react-navigation/stack'
 import { MaterialCommunityIcons } from '@expo/vector-icons'; 
 import { Ionicons } from '@expo/vector-icons'; 
-
 import SingleList from './singleList'
 import ListView from './list'
 import MapView from './map'
 
 const Tab = createBottomTabNavigator()
-
 const ListStack = createStackNavigator()
 
 const ListStackScreen = () => (
@@ -58,7 +55,7 @@ const homeScreen = () => {
         }}
         name='Map' children={() => <MapView data={data}/>} />
 
-
+       {/* ListStackScreen passes data to the List and Single list, LINE 15 */}
       <Tab.Screen
         options={{
           tabBarLabel: 'List',

@@ -5,6 +5,8 @@ import { Text, TouchableOpacity, View, StyleSheet, Image } from 'react-native'
 export default function ListComponent ({ list }) {
 
   const navigation = useNavigation()
+
+  // getting title and description rendered on the screen and passing to the list.js
   
   return (
     <TouchableOpacity onPress={() => navigation.navigate('SingleList')}>

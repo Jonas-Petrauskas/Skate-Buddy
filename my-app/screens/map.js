@@ -1,8 +1,9 @@
 import React from 'react'
-import { View, Text, StyleSheet, SafeAreaView } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import MapView, { Marker } from 'react-native-maps'
 
 const Map = ({ data }) => {
+  // here from database getting coordinates, once it's mapped it automatically adds marker in the GoogleMap
   const pinData = data.map((marker, index) => {
     return (
       <Marker

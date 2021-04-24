@@ -1,44 +1,22 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import { View, Text, SafeAreaView, StyleSheet, Image, ScrollView } from 'react-native'
 import { StatusBar } from 'expo-status-bar'
-import SingleListComponent from '../components/singleListComponent'
-
-
-// const dataUrl = 'http://192.168.1.219:3003/list'
-
 
 export default function SingleList () {
 
-  // const [ singleData, setData] = useState([])
-
-  // const gettingData = async () => {
-  //   const response = await fetch(dataUrl)
-  //   const json = await response.json()
-  //   setData(json)
-  // }
-
-  // useEffect(() => {
-  //   gettingData()
-  // }, [])
-
-  // const singleDataList = singleData.map(singleData => <SingleListComponent key={singleData._id} single={singleData} />)
-
+  // Not fisnished, but this is how all information will be rendered in the Singlelist
 
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
       <View style={styles.view}>
-          {/* <View> */}
-            <Image  source={require('../assets/universitat.png')} />
-          {/* </View> */}
-          {/* <View> */}
-            <Text style={styles.text}>Universitat Skate Spot</Text>
-            <Text style={styles.description}>Perfect for flatground tricks. Have few medium height ledges.
-             Ussually prety crowded, suggested time to hit this spot in the morning or late evening.</Text>
-             <Text style={styles.location}>Location</Text>
-             <Text style={styles.address}>Universitat, 08007 Barcelona</Text>
-             <Image style={styles.mapImage} source={require('../assets/map.png')} />
-          {/* </View> */}
+        <Image  source={require('../assets/universitat.png')} />
+        <Text style={styles.text}>Universitat Skate Spot</Text>
+        <Text style={styles.description}>Perfect for flatground tricks. Have few medium height ledges.
+          Ussually prety crowded, suggested time to hit this spot in the morning or late evening.</Text>
+        <Text style={styles.location}>Location</Text>
+        <Text style={styles.address}>Universitat, 08007 Barcelona</Text>
+        <Image style={styles.mapImage} source={require('../assets/map.png')} />
       </View>
       </ScrollView>
         <StatusBar style='inverted' />
