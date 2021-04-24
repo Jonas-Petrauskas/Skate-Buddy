@@ -5,7 +5,6 @@ import LandingPage from './screens/landingScreen'
 import HomePage from './screens/homePage'
 
 export default function App () {
-  
   const Stack = createStackNavigator()
 
   return (

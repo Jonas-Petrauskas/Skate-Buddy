@@ -3,14 +3,14 @@ import React from 'react'
 import { Text, TouchableOpacity, View, StyleSheet, Image } from 'react-native'
 
 export default function ListComponent ({ list }) {
-
   const navigation = useNavigation()
 
   // getting title and description rendered on the screen and passing to the list.js
-  
+
   return (
     <TouchableOpacity onPress={() => navigation.navigate('SingleList')}>
-      <View style={{
+      <View
+        style={{
           backgroundColor: 'rgb(55, 53, 57)',
           color: 'rgb(240, 237, 238)',
           height: 390,
@@ -23,7 +23,7 @@ export default function ListComponent ({ list }) {
       >
         <View style={styles.image}>
 
-        <Image  source={require('../assets/universitat.png')} />
+          <Image source={require('../assets/universitat.png')} />
         </View>
         <Text style={styles.text}>
           {list.title}

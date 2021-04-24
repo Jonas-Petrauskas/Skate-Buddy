@@ -3,23 +3,23 @@ import { View, Text, SafeAreaView, StyleSheet, Image, ScrollView } from 'react-n
 import { StatusBar } from 'expo-status-bar'
 
 export default function SingleList () {
-
   // Not fisnished, but this is how all information will be rendered in the Singlelist
 
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
-      <View style={styles.view}>
-        <Image  source={require('../assets/universitat.png')} />
-        <Text style={styles.text}>Universitat Skate Spot</Text>
-        <Text style={styles.description}>Perfect for flatground tricks. Have few medium height ledges.
-          Ussually prety crowded, suggested time to hit this spot in the morning or late evening.</Text>
-        <Text style={styles.location}>Location</Text>
-        <Text style={styles.address}>Universitat, 08007 Barcelona</Text>
-        <Image style={styles.mapImage} source={require('../assets/map.png')} />
-      </View>
+        <View style={styles.view}>
+          <Image source={require('../assets/universitat.png')} />
+          <Text style={styles.text}>Universitat Skate Spot</Text>
+          <Text style={styles.description}>Perfect for flatground tricks. Have few medium height ledges.
+            Ussually prety crowded, suggested time to hit this spot in the morning or late evening.
+          </Text>
+          <Text style={styles.location}>Location</Text>
+          <Text style={styles.address}>Universitat, 08007 Barcelona</Text>
+          <Image style={styles.mapImage} source={require('../assets/map.png')} />
+        </View>
       </ScrollView>
-        <StatusBar style='inverted' />
+      <StatusBar style='inverted' />
     </SafeAreaView>
   )
 }
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     height: 760,
     paddingLeft: 25,
     paddingTop: 15,
-    borderRadius: 20,
+    borderRadius: 20
   },
   text: {
     color: 'rgb(240, 237, 238)',
