@@ -2,15 +2,14 @@ import React from 'react'
 import { View, Text, SafeAreaView, StyleSheet, Image, ScrollView } from 'react-native'
 import { StatusBar } from 'expo-status-bar'
 
-export default function SingleList ({ route, navigation }) {
-
-  const { singleList } = route.params;
+export default function SingleList ({ route }) {
+  const { singleList } = route.params
 
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
         <View style={styles.view}>
-          <Image style={styles.image} source={{ uri: singleList.list.image}}/>
+          <Image style={styles.image} source={{ uri: singleList.list.image }} />
           <Text style={styles.text}>{singleList.list.title}</Text>
           <Text style={styles.description}>{singleList.list.mainDescription}
           </Text>
@@ -22,7 +21,7 @@ export default function SingleList ({ route, navigation }) {
       <StatusBar style='inverted' />
     </SafeAreaView>
   )
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -70,6 +69,6 @@ const styles = StyleSheet.create({
     width: 275,
     height: 275,
     // resizeMode: 'cover',
-    borderRadius: 15 
+    borderRadius: 15
   }
 })

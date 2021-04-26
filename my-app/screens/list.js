@@ -25,13 +25,13 @@ export default function List () {
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView indicatorStyle= 'black'>
+      <ScrollView indicatorStyle='black'>
         <StatusBar style='inverted' />
         <View style={styles.dataList}>{dataList}</View>
       </ScrollView>
     </SafeAreaView>
   )
-}
+};
 
 const styles = StyleSheet.create({
   container: {

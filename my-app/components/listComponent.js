@@ -10,7 +10,8 @@ export default function ListComponent ({ list }) {
   return (
     <TouchableOpacity onPress={() => navigation.navigate('SingleList', {
       singleList: { list }
-    })}>
+    })}
+    >
       <View
         style={{
           backgroundColor: 'rgb(55, 53, 57)',
@@ -23,8 +24,8 @@ export default function ListComponent ({ list }) {
         }}
         key={list._id}
       >
-      <View style={styles.image}>
-          <Image style={styles.imageMain} source={{ uri: list.image}} />
+        <View style={styles.image}>
+          <Image style={styles.imageMain} source={{ uri: list.image }} />
         </View>
         <Text style={styles.text}>
           {list.title}
@@ -36,7 +37,7 @@ export default function ListComponent ({ list }) {
     </TouchableOpacity>
 
   )
-}
+};
 
 const styles = StyleSheet.create({
   text: {
