@@ -14,6 +14,9 @@ const skateBuddySchema = new Schema({
   },
   longitude: {
     type: Number
+  },
+  image: {
+    type: String
   }
 })
 

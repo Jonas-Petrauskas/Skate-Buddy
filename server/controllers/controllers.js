@@ -1,5 +1,4 @@
 const Data = require('../model/data')
-const Spots = require
 
 exports.getAll = async (req, res) => {
   try {

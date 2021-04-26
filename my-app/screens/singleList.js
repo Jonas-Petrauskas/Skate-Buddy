@@ -2,15 +2,18 @@ import React from 'react'
 import { View, Text, SafeAreaView, StyleSheet, Image, ScrollView } from 'react-native'
 import { StatusBar } from 'expo-status-bar'
 
-export default function SingleList () {
+export default function SingleList ({ route, navigation }) {
+
+  const { singleList } = route.params;
+  console.log(singleList)
   // Not fisnished, but this is how all information will be rendered in the Singlelist
 
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
         <View style={styles.view}>
-          <Image source={require('../assets/universitat.png')} />
-          <Text style={styles.text}>Universitat Skate Spot</Text>
+          <Image style={styles.image} source={{ uri: singleList.list.image}}/>
+          <Text style={styles.text}>{singleList.list.title}</Text>
           <Text style={styles.description}>Perfect for flatground tricks. Have few medium height ledges.
             Ussually prety crowded, suggested time to hit this spot in the morning or late evening.
           </Text>
@@ -23,6 +26,7 @@ export default function SingleList () {
     </SafeAreaView>
   )
 }
+// source={require('../assets/universitat.png')}
 
 const styles = StyleSheet.create({
   container: {
@@ -64,5 +68,11 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     paddingRight: 20,
     paddingBottom: 25
+  },
+  image: {
+    width: '93%',
+    height: '25%',
+    resizeMode: 'cover',
+    borderRadius: 15
   }
 })

@@ -25,9 +25,9 @@ export default function List () {
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView>
-        <View style={styles.dataList}>{dataList}</View>
+      <ScrollView indicatorStyle= 'white'>
         <StatusBar style='inverted' />
+        <View style={styles.dataList}>{dataList}</View>
       </ScrollView>
     </SafeAreaView>
   )
