@@ -11,7 +11,7 @@ const landingPage = ({ navigation }) => {
           <TouchableOpacity
             style={stylesButton.button} onPress={() => navigation.navigate('List')}
           >
-            <Text style={stylesButton.text}>Click here</Text>
+            <Text style={stylesButton.text}>Bangin!</Text>
           </TouchableOpacity>
         </View>
       </ImageBackground>
@@ -41,12 +41,12 @@ const stylesButton = StyleSheet.create({
     paddingVertical: 12,
     paddingHorizontal: 34,
     borderRadius: 15,
-    width: 150,
+    width: 200,
     marginTop: 550,
-    backgroundColor: 'rgb(240, 237, 238)'
+    backgroundColor: 'rgb(217, 108, 6)'
   },
   text: {
-    color: 'rgb(55, 53, 57)',
+    color: 'rgb(240, 237, 238)',
     fontWeight: 'bold',
     fontSize: 16,
     letterSpacing: 0.25

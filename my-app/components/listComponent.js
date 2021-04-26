@@ -4,8 +4,6 @@ import { Text, TouchableOpacity, View, StyleSheet, Image } from 'react-native'
 
 export default function ListComponent ({ list }) {
   const navigation = useNavigation()
-
-
   // fucntioln on press. make a use state.
   // getting title and description rendered on the screen and passing to the list.js
 
@@ -17,7 +15,7 @@ export default function ListComponent ({ list }) {
         style={{
           backgroundColor: 'rgb(55, 53, 57)',
           color: 'rgb(240, 237, 238)',
-          height: 390,
+          height: 400,
           width: 325,
           borderRadius: 20,
           marginBottom: 40,
@@ -25,9 +23,8 @@ export default function ListComponent ({ list }) {
         }}
         key={list._id}
       >
-        <View style={styles.image}>
-
-          <Image source={require('../assets/universitat.png')} />
+      <View style={styles.image}>
+          <Image style={styles.imageMain} source={{ uri: list.image}} />
         </View>
         <Text style={styles.text}>
           {list.title}
@@ -43,20 +40,28 @@ export default function ListComponent ({ list }) {
 
 const styles = StyleSheet.create({
   text: {
-    color: 'rgb(240, 237, 238)',
+    color: 'rgb(217, 108, 6)',
     fontSize: 20,
     fontWeight: 'bold',
     paddingTop: 15,
-    paddingLeft: 25
+    paddingLeft: 25,
+    paddingRight: 25
   },
   description: {
     color: 'rgb(240, 237, 238)',
     fontSize: 15,
     paddingTop: 15,
-    paddingLeft: 25
+    paddingLeft: 25,
+    paddingRight: 25
   },
   image: {
     paddingLeft: 25,
     paddingTop: 15
+  },
+  imageMain: {
+    width: 275,
+    height: 275,
+    // resizeMode: 'cover',
+    borderRadius: 15
   }
 })

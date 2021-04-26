@@ -50,7 +50,7 @@ const homeScreen = () => {
         options={{
           tabBarLabel: 'Map',
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name='md-map-outline' size={24} color='rgb(240, 237, 238)' />
+            <Ionicons name='md-map-outline' size={24} color='rgb(217, 108, 6)' />
           )
         }}
         name='Map' children={() => <MapView data={data} />}
@@ -61,7 +61,7 @@ const homeScreen = () => {
         options={{
           tabBarLabel: 'List',
           tabBarIcon: ({ color, size }) => (
-            <MaterialCommunityIcons name='skateboard' size={24} color='rgb(240, 237, 238)' />
+            <MaterialCommunityIcons name='skateboard' size={24} color='rgb(217, 108, 6)' />
           )
         }}
         name='List' children={() => <ListStackScreen data={data} />}
@@ -69,5 +69,4 @@ const homeScreen = () => {
     </Tab.Navigator>
   )
 }
-
 export default homeScreen

@@ -9,6 +9,12 @@ const skateBuddySchema = new Schema({
   description: {
     type: String
   },
+  mainDescription: {
+    type: String
+  },
+  location: {
+    type: String
+  },
   latitude: {
     type: Number
   },
