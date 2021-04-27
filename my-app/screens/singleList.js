@@ -2,6 +2,8 @@ import React from 'react'
 import { View, Text, SafeAreaView, StyleSheet, Image, ScrollView } from 'react-native'
 import { StatusBar } from 'expo-status-bar'
 
+import SingleMap from '../components/singleMapComponent'
+
 export default function SingleList ({ route }) {
   const { singleList } = route.params
 
@@ -15,7 +17,8 @@ export default function SingleList ({ route }) {
           </Text>
           <Text style={styles.location}>Location</Text>
           <Text style={styles.address}>{singleList.list.location}</Text>
-          <Image style={styles.mapImage} source={require('../assets/map.png')} />
+          <SingleMap style={styles.mapImage}/>
+
         </View>
       </ScrollView>
       <StatusBar style='inverted' />

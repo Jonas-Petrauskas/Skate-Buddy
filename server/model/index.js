@@ -1,6 +1,8 @@
 const mongoose = require('mongoose')
+require('dotenv').config()
 
-mongoose.connect('mongodb://localhost:27017/skate', { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }).then(
+
+mongoose.connect(`${process.env.MONGODB_SKATE}`, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }).then(
   () => { console.log('Database is connected') },
   err => { console.log('Can not connect to the database' + err) }
 )

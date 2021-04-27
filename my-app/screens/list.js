@@ -2,15 +2,17 @@ import React, { useState, useEffect } from 'react'
 import { View, StyleSheet, SafeAreaView, ScrollView } from 'react-native'
 import { StatusBar } from 'expo-status-bar'
 import ListComponent from '../components/listComponent'
+import { BACKEND_URL } from '@env'
 
-const dataUrl = 'http://192.168.1.219:3003/list'
+
+// const dataUrl = 'http://192.168.1.219:3003/list'
 
 export default function List () {
   // was not able to manage this part with fetchin API here yet. It will be changed and passed from Parent file
   const [data, setData] = useState([])
 
   const gettingData = async () => {
-    const response = await fetch(dataUrl)
+    const response = await fetch(BACKEND_URL)
     const json = await response.json()
     setData(json)
   }
@@ -25,7 +27,10 @@ export default function List () {
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView indicatorStyle='black'>
+      <ScrollView indicatorStyle='black'
+        showsVerticalScrollIndicator={false}
+
+      >
         <StatusBar style='inverted' />
         <View style={styles.dataList}>{dataList}</View>
       </ScrollView>

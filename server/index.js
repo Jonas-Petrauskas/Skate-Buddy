@@ -1,16 +1,18 @@
 const express = require('express')
 const cors = require('cors')
 
+require('dotenv').config()
+
 const app = express()
 app.use(cors())
 
 const router = require('./router/router')
 
-const PORT = 3003
+const PORT = process.env.PORT_ID
 
 app.use(express.json())
 app.use(router)
 
 app.listen(PORT, () => {
-  console.log(`listening on http://192.168.1.219:${PORT}`)
+  console.log(`listening on ${process.env.BACKEND_URL}${PORT}`)
 })

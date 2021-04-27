@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { createStackNavigator } from '@react-navigation/stack'
 import { MaterialCommunityIcons, Ionicons } from '@expo/vector-icons'
+import { BACKEND_URL } from '@env'
 
 import SingleList from './singleList'
 import ListView from './list'
@@ -19,13 +20,14 @@ const ListStackScreen = () => (
   </ListStack.Navigator>
 )
 
-const dataUrl = 'http://192.168.1.219:3003/list'
+// const dataUrl = 'http://192.168.1.219:3003/list'
 
 const homeScreen = () => {
   const [data, setData] = useState([])
 
   const gettingData = async () => {
-    const response = await fetch(dataUrl)
+    const response = await fetch(BACKEND_URL) 
+    // +'/list'
     const json = await response.json()
     setData(json)
   }
@@ -36,7 +38,7 @@ const homeScreen = () => {
 
   return (
     <Tab.Navigator tabBarOptions={{
-      activeTintColor: 'white',
+      activeTintColor: 'rgb(217, 108, 6)',
       style: {
         backgroundColor: 'rgb(18, 18, 20)',
         borderTopWidth: 0

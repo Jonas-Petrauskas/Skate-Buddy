@@ -1,13 +1,28 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { View, Text, StyleSheet, Button, Image, TouchableOpacity } from 'react-native'
 import MapView, { Callout, Marker } from 'react-native-maps'
-import { useNavigation } from '@react-navigation/native'
 import { CustomMapStyle } from '../components/customMapStyle'
+import { BACKEND_URL } from '@env'
 
-const Map = ({ data }) => {
 
-  const navigation = useNavigation()
-  // here from database getting coordinates, once it's mapped it automatically adds marker in the GoogleMap
+
+
+// const dataUrl = 'http://192.168.1.219:3003/list'
+
+const SingleMap = () => {
+  const [data, setData] = useState([])
+
+  const gettingData = async () => {
+    const response = await fetch(BACKEND_URL)
+    const json = await response.json()
+    setData(json)
+  }
+
+  useEffect(() => {
+    gettingData()
+  }, [])
+
+
   const pinData = data.map((marker, index) => {
     return (
       <Marker
@@ -15,7 +30,7 @@ const Map = ({ data }) => {
         coordinate={{ latitude: marker.latitude, longitude: marker.longitude }}
         image={require('../assets/location64.png')}
       >
-        <Callout onPress={() => navigation.navigate('List')} style={styles.container}>
+        <Callout>
           <View>
             <Image style={styles.image} source={{ uri: marker.image}}/>
             <Text style={styles.title}>{marker.title}</Text>
@@ -28,11 +43,10 @@ const Map = ({ data }) => {
 
   return (
 
-    <View style={StyleSheet.absoluteFillObject}>
-
+    <View>
       <MapView
         customMapStyle={CustomMapStyle}
-        style={StyleSheet.absoluteFillObject}
+        style={styles.map}
         provider='google'
         loadingEnabled
         region={{
@@ -45,21 +59,25 @@ const Map = ({ data }) => {
         {pinData}
       </MapView>
     </View>
+
   )
 }
 
 const styles = StyleSheet.create({
-  container: {
-  },
   image: {
-    width: 100,
-    height: 100
+    width: 60,
+    height: 60
   },
   title: {
     alignSelf: 'center',
-    width: 100,
+    width: 60,
     color: 'black'
+  },
+  map: {
+    width: 275,
+    height: 275,
+    borderRadius: 25
   }
 })
 
-export default Map
+export default SingleMap
