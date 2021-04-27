@@ -1,13 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text, StyleSheet, Button, Image, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, Image } from 'react-native'
 import MapView, { Callout, Marker } from 'react-native-maps'
-import { CustomMapStyle } from '../components/customMapStyle'
+import { CustomMapStyle } from './customMapStyle'
 import { BACKEND_URL } from '@env'
-
-
-
-
-// const dataUrl = 'http://192.168.1.219:3003/list'
 
 const SingleMap = () => {
   const [data, setData] = useState([])
@@ -22,7 +17,6 @@ const SingleMap = () => {
     gettingData()
   }, [])
 
-
   const pinData = data.map((marker, index) => {
     return (
       <Marker
@@ -32,7 +26,7 @@ const SingleMap = () => {
       >
         <Callout>
           <View>
-            <Image style={styles.image} source={{ uri: marker.image}}/>
+            <Image style={styles.image} source={{ uri: marker.image }} />
             <Text style={styles.title}>{marker.title}</Text>
           </View>
         </Callout>

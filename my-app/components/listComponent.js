@@ -4,8 +4,6 @@ import { Text, TouchableOpacity, View, StyleSheet, Image } from 'react-native'
 
 export default function ListComponent ({ list }) {
   const navigation = useNavigation()
-  // fucntioln on press. make a use state.
-  // getting title and description rendered on the screen and passing to the list.js
 
   return (
     <TouchableOpacity onPress={() => navigation.navigate('SingleList', {
@@ -62,7 +60,6 @@ const styles = StyleSheet.create({
   imageMain: {
     width: 275,
     height: 275,
-    // resizeMode: 'cover',
     borderRadius: 15
   }
 })

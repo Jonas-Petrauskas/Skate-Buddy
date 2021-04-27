@@ -1,13 +1,11 @@
 import React from 'react'
-import { View, Text, StyleSheet, Button, Image, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, Image } from 'react-native'
 import MapView, { Callout, Marker } from 'react-native-maps'
 import { useNavigation } from '@react-navigation/native'
 import { CustomMapStyle } from '../components/customMapStyle'
 
 const Map = ({ data }) => {
-
   const navigation = useNavigation()
-  // here from database getting coordinates, once it's mapped it automatically adds marker in the GoogleMap
   const pinData = data.map((marker, index) => {
     return (
       <Marker
@@ -17,7 +15,7 @@ const Map = ({ data }) => {
       >
         <Callout onPress={() => navigation.navigate('List')} style={styles.container}>
           <View>
-            <Image style={styles.image} source={{ uri: marker.image}}/>
+            <Image style={styles.image} source={{ uri: marker.image }} />
             <Text style={styles.title}>{marker.title}</Text>
           </View>
         </Callout>

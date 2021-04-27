@@ -17,7 +17,7 @@ export default function SingleList ({ route }) {
           </Text>
           <Text style={styles.location}>Location</Text>
           <Text style={styles.address}>{singleList.list.location}</Text>
-          <SingleMap style={styles.mapImage}/>
+          <SingleMap style={styles.mapImage} />
 
         </View>
       </ScrollView>
@@ -71,7 +71,6 @@ const styles = StyleSheet.create({
   image: {
     width: 275,
     height: 275,
-    // resizeMode: 'cover',
     borderRadius: 15
   }
 })

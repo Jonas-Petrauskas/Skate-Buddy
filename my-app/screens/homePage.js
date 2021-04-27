@@ -20,14 +20,11 @@ const ListStackScreen = () => (
   </ListStack.Navigator>
 )
 
-// const dataUrl = 'http://192.168.1.219:3003/list'
-
 const homeScreen = () => {
   const [data, setData] = useState([])
 
   const gettingData = async () => {
-    const response = await fetch(BACKEND_URL) 
-    // +'/list'
+    const response = await fetch(BACKEND_URL)
     const json = await response.json()
     setData(json)
   }
@@ -58,7 +55,6 @@ const homeScreen = () => {
         name='Map' children={() => <MapView data={data} />}
       />
 
-      {/* ListStackScreen passes data to the List and Single list, LINE 15 */}
       <Tab.Screen
         options={{
           tabBarLabel: 'List',
