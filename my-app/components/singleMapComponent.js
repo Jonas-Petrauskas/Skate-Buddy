@@ -2,14 +2,13 @@ import React, { useState, useEffect } from 'react'
 import { View, Text, StyleSheet, Image } from 'react-native'
 import MapView, { Callout, Marker } from 'react-native-maps'
 import { CustomMapStyle } from './customMapStyle'
-const dataUrl = 'http://192.168.1.222:3003/list'
-// import { BACKEND_URL } from "@env"
+import { BACKEND_URL } from "@env"
 
 const SingleMap = () => {
   const [data, setData] = useState([])
 
   const gettingData = async () => {
-    const response = await fetch(dataUrl)
+    const response = await fetch(BACKEND_URL)
     const json = await response.json()
     setData(json)
   }

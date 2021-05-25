@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { createStackNavigator } from '@react-navigation/stack'
 import { MaterialCommunityIcons, Ionicons } from '@expo/vector-icons'
-const dataUrl = 'http://192.168.1.222:3003/list'
-// import { BACKEND_URL } from "@env"
+import { BACKEND_URL } from "@env"
 
 
 
@@ -27,7 +26,7 @@ const homeScreen = () => {
   const [data, setData] = useState([])
 
   const gettingData = async () => {
-    const response = await fetch(dataUrl)
+    const response = await fetch(BACKEND_URL)
     const json = await response.json()
     setData(json)
   }
