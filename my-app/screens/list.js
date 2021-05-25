@@ -2,14 +2,13 @@ import React, { useState, useEffect } from 'react'
 import { View, StyleSheet, SafeAreaView, ScrollView } from 'react-native'
 import { StatusBar } from 'expo-status-bar'
 import ListComponent from '../components/listComponent'
-// import { BACKEND_URL } from "@env"
-const dataUrl = 'http://192.168.1.222:3003/list'
+import { BACKEND_URL } from "@env"
 
 export default function List () {
   const [data, setData] = useState([])
 
   const gettingData = async () => {
-    const response = await fetch(dataUrl)
+    const response = await fetch(BACKEND_URL)
     const json = await response.json()
     setData(json)
   }
